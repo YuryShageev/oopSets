@@ -49,7 +49,6 @@ public class Product {
     public void addProducts(Set<Product> basket) {
         if (!basket.contains(this)) {
             basket.add(this);
-            this.bought = true;
         }else {
             throw new UnsupportedOperationException("Такой товар " + getName() + " уже есть в корзине");
         }
