@@ -29,7 +29,6 @@ public class Main {
         pasta.addProducts(basket);
         buckwheat.addProducts(basket);
         onion.addProducts(basket);
-        apples.addProducts(basket);
         blackPepper.addProducts(basket);
         redPepper.addProducts(basket);
         System.out.println(basket);
