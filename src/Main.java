@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Main {
@@ -56,6 +58,14 @@ public class Main {
         pastaChicken.addRecipes(recipes);
 
         System.out.println(recipes);
+
+        Integer[] forList = new Integer[20];
+        for (int i = 0; i < forList.length; i++) {
+            forList[i] = (int) (Math.random() * 1000);
+        }
+        List<Integer> integerList = Arrays.asList(forList);
+
+        System.out.println(integerList);
     }
 
     public static void separator() {
