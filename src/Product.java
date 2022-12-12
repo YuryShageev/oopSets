@@ -6,7 +6,6 @@ public class Product {
     private String name;
     private float amount;
     private float cost;
-    private boolean bought;
 
     public Product(String name, float amount, float cost) {
         this.name = validateParameters(name);
@@ -38,13 +37,6 @@ public class Product {
         this.cost = cost;
     }
 
-    public boolean isBought() {
-        return bought;
-    }
-
-    public void setBought(boolean bought) {
-        this.bought = bought;
-    }
 
     public void addProducts(Set<Product> basket) {
         if (!basket.contains(this)) {
@@ -82,11 +74,11 @@ public class Product {
         if (this == o) return true;
         if (!(o instanceof Product)) return false;
         Product product = (Product) o;
-        return Float.compare(product.amount, amount) == 0 && Float.compare(product.cost, cost) == 0 && bought == product.bought && name.equals(product.name);
+        return Float.compare(product.amount, amount) == 0 && Float.compare(product.cost, cost) == 0 && name.equals(product.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, amount, cost);
     }
 }
