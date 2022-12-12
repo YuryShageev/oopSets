@@ -53,7 +53,7 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return recipeName + ", Стоимостью = " + wholeCost + " рублей" + "\n";
+        return recipeName + ", Стоимостью = " + wholeCost + " рублей\n";
     }
 
     @Override
