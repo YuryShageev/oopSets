@@ -1,6 +1,5 @@
-import java.util.Arrays;
+
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Main {
@@ -59,13 +58,13 @@ public class Main {
 
         System.out.println(recipes);
 
-        Integer[] forList = new Integer[20];
-        for (int i = 0; i < forList.length; i++) {
-            forList[i] = (int) (Math.random() * 1000);
+       Set<Integer> forList = new HashSet<>();
+        for (int i = 0; i <= 20; i++) {
+            forList.add((int) (Math.random()*1000) + 1);
         }
-        List<Integer> integerList = Arrays.asList(forList);
+        forList.removeIf(integer -> integer % 2 != 0);
 
-        System.out.println(integerList);
+        System.out.println(forList);
     }
 
     public static void separator() {
