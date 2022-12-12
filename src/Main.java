@@ -8,7 +8,7 @@ public class Main {
 
         Set<Product> basket = new HashSet<>();
 
-        Product apples = new Product("Яблоки", 0, 160f);
+        Product apples = new Product("Яблоки", 1, 180f);
         Product peaches = new Product("Персики", 1, 420f);
         Product cherries = new Product("Вишня", 3, 320f);
         Product apricots = new Product("Абрикосы", 1.5f, 230f);
@@ -29,8 +29,12 @@ public class Main {
         pasta.addProducts(basket);
         buckwheat.addProducts(basket);
         onion.addProducts(basket);
+        apples.addProducts(basket);
         blackPepper.addProducts(basket);
         redPepper.addProducts(basket);
+        System.out.println(basket);
+
+        basket.remove(buckwheat);
         System.out.println(basket);
     }
 }

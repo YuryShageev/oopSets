@@ -88,6 +88,6 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, amount, cost, bought);
+        return Objects.hash(name);
     }
 }
