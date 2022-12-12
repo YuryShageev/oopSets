@@ -36,5 +36,31 @@ public class Main {
 
         basket.remove(buckwheat);
         System.out.println(basket);
+
+        separator();
+
+        Set<Recipe> recipes = new HashSet<>();
+        Recipe apricotChicken = new Recipe("Курица с абрикосом");
+        Recipe fruitMix = new Recipe("Фруктовый микс");
+        Recipe porridgeChicken = new Recipe("Гречка с курицей");
+        Recipe pastaChicken = new Recipe("Макароны с курицей");
+
+        apricotChicken.addProducts(apricots, chicken, blackPepper);
+        fruitMix.addProducts(apples, peaches, cherries, apricots);
+        porridgeChicken.addProducts(buckwheat, chicken, onion, blackPepper);
+        pastaChicken.addProducts(pasta, chicken, onion, blackPepper);
+
+        apricotChicken.addRecipes(recipes);
+        fruitMix.addRecipes(recipes);
+        porridgeChicken.addRecipes(recipes);
+        pastaChicken.addRecipes(recipes);
+
+        System.out.println(recipes);
+    }
+
+    public static void separator() {
+        System.out.println("=========================================================");
     }
 }
+
+
