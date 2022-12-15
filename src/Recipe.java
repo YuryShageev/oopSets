@@ -1,17 +1,23 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Recipe {
 
     private final String recipeName;
     private final Set<Product> multipleProducts;
-    private float wholeCost;
 
-    public Recipe(String recipeName) {
+    private final Map<Product, Integer> products;
+    private float wholeCost;
+    private Recipe recipe;
+
+    public Recipe(String recipeName, float wholeCost, Product... products) {
         this.recipeName = validateRecipeName(recipeName);
         this.multipleProducts = new HashSet<>();
+        this.products = new HashMap<>();
+        setWholeCost(0.0f);
+        for (Product product : products) {
+            setWholeCost((getWholeCost() + product.getCost()) * product.getCount());
+            this.products.put(product, product.getCount());
+        }
     }
 
 
@@ -20,7 +26,9 @@ public class Recipe {
         for (Product t : this.multipleProducts) {
             this.wholeCost += t.getCost();
         }
+
     }
+
 
     private String validateRecipeName(String value) {
         if (value == null || value.isBlank() || value.isEmpty()) {
@@ -30,9 +38,9 @@ public class Recipe {
         }
     }
 
-    public void addRecipes(Set<Recipe> recipes) {
-        if (!recipes.contains(this)) {
-            recipes.add(this);
+    public void addRecipes(Recipe recipe) {
+        if (!recipe.equals(this.recipe)) {
+            recipe.addRecipes(recipe);
         }else {
             throw new UnsupportedOperationException("Такой рецепт " + getRecipeName() + " уже есть в списке");
         }
@@ -49,6 +57,15 @@ public class Recipe {
 
     public float getWholeCost() {
         return wholeCost;
+    }
+
+
+    public Map<Product, Integer> getProducts() {
+        return products;
+    }
+
+    public void setWholeCost(float wholeCost) {
+        this.wholeCost = wholeCost;
     }
 
     @Override

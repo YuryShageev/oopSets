@@ -6,15 +6,22 @@ public class Product {
     private String name;
     private float amount;
     private float cost;
+    private Integer count;
 
-    public Product(String name, float amount, float cost) {
-        this.name = validateParameters(name);
-        this.amount = validateNumbers(amount);
-        this.cost = validateNumbers(cost);
+    public Product(String name, float amount, float cost, Integer count) {
+        this();
+        try {
+            this.count = validateCount(count);
+            this.name = validateParameters(name);
+            this.amount = validateNumbers(amount);
+            this.cost = validateNumbers(cost);
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Не все поля заполнены");
+        }
     }
 
-    public Product(String name) {
-        this.name = name;
+    public Product() {
+        amount = 1;
     }
 
     public String getName() {
@@ -22,7 +29,8 @@ public class Product {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name == null || name.isEmpty() || name.isBlank()) throw new RuntimeException();
+        else this.name = name;
     }
 
     public float getAmount() {
@@ -41,6 +49,9 @@ public class Product {
         this.cost = cost;
     }
 
+    public Integer getCount() {
+        return count;
+    }
 
     public void addProducts(Set<Product> basket) {
         if (!basket.contains(this)) {
@@ -67,6 +78,17 @@ public class Product {
             return value;
         }
     }
+    public Integer validateCount(Integer value) {
+        if (value == 0) {
+            throw new UnsupportedOperationException("Введите количество");
+        } else if (value < 0) {
+            return value = Math.abs(value);
+        } else {
+            return value;
+        }
+    }
+
+
 
     @Override
     public String toString() {
