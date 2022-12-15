@@ -48,6 +48,8 @@ public class Main {
 //        Recipe porridgeChicken = new Recipe("Гречка с курицей",0,buckwheat, chicken, onion, blackPepper);
 //        Recipe pastaChicken = new Recipe("Макароны с курицей",0,pasta, chicken, onion, blackPepper);
 
+        System.out.println("Последняя часть с рецептами");
+
         apricotChicken.put(apples, 3);
         apricotChicken.put(chicken, 1);
         apricotChicken.put(blackPepper, 1);
